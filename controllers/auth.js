@@ -52,9 +52,8 @@ const login = async (req, res) => {
 					token,
 				});
 			}
-		} else {
-			throw new NotFoundError("Invalid Credentials");
 		}
+		throw new NotFoundError("Invalid Credentials");
 	} catch (error) {
 		console.log(error);
 		throw new CustomAPIError(error.message || error.name || error.msg);

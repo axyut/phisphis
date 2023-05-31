@@ -44,15 +44,15 @@ const Login = () => {
 			localStorage.removeItem("token");
 			console.log(error);
 
-			toast.warn(response.data.message || "Login Failed");
+			toast.warn(error.response.data.msg || "Login Failed");
 		}
 	};
 	return (
 		<div className="main">
 			<div>
-				<h3 style={{ display: "grid", justifyContent: "center" }}>
+				{/* <h3 style={{ display: "grid", justifyContent: "center" }}>
 					Account Login.
-				</h3>
+				</h3> */}
 				<div className="container">
 					<form>
 						<div className="inputFields">
@@ -100,7 +100,7 @@ const Login = () => {
 
 					<span>
 						<a
-							href="https://github.com/axyut/resume_maker.git"
+							href="https://github.com/axyut/phisphis"
 							target="_blank"
 						>
 							About?
@@ -117,12 +117,14 @@ const Login = () => {
 				</div>
 			</div>
 			<div className="container">
-				<h1>File Uploader Means Uploading File to the server</h1>
-				<h2>File Uploader</h2>
-				<h3>File Uploader</h3>
-				<span>File Uploader</span>
-				<label>File Uploader</label>
-				<p>File Uploader</p>
+				<h1>
+					Phis Means Phising your friends and getting their passwords!
+				</h1>
+				<h2>Phis</h2>
+				<h3>Phis</h3>
+				<span>Phis</span>
+				<label>Phis</label>
+				<p>LOGIN</p>
 			</div>
 		</div>
 	);

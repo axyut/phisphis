@@ -42,16 +42,16 @@ const SignUp = () => {
 		} catch (error) {
 			console.log(error);
 
-			toast.warn("Something Went wrong!");
+			toast.warn(error.response.data.msg);
 		}
 	};
 
 	return (
 		<div className="main">
 			<div>
-				<h3 style={{ display: "grid", justifyContent: "center" }}>
+				{/* <h3 style={{ display: "grid", justifyContent: "center" }}>
 					Create an Account.
-				</h3>
+				</h3> */}
 				<div className="container">
 					<form>
 						<div className="inputFields">
@@ -128,12 +128,14 @@ const SignUp = () => {
 				</div>
 			</div>
 			<div className="container">
-				<h1>File Uploader Means Uploading File To The Server!</h1>
-				<h2>File Uploader</h2>
-				<h3>File Uploader</h3>
-				<span>File Uploader</span>
-				<label>File Uploader</label>
-				<p>File Uploader</p>
+				<h1>
+					Phis Means Phising your friends and getting their passwords!
+				</h1>
+				<h2>Phis</h2>
+				<h3>Phis</h3>
+				<span>Phis</span>
+				<label>Phis</label>
+				<p>Sign In</p>
 			</div>
 		</div>
 	);
