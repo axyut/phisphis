@@ -1,26 +1,24 @@
+#root {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
 .main {
 	width: 100%;
 	align-items: center;
 	display: flex;
-	flex-direction: row-reverse;
-}
-
-.main-home {
-	padding: 10rem;
-	text-align: center;
-}
-.main-home h1 {
-	font-size: 8rem;
-	color: rgb(205, 246, 246);
-	font-family: "Courier New", Courier, monospace;
+	justify-content: center;
+	justify-items: center;
+	justify-self: center;
 }
 
 .container {
 	margin: 2em;
-	width: auto;
+	width: 100%;
 	height: auto;
 	min-height: 500px;
-
+	max-width: 500px;
 	min-width: 250px;
 	background: #2d2d2d;
 	background-image: radial-gradient(#4a4e44 7.2%, transparent 0);
@@ -30,13 +28,12 @@
 	padding: 1rem;
 	box-sizing: border-box;
 }
-
-.inputFields {
+.heading {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-bottom: 1rem;
 }
-
 input {
 	box-sizing: border-box;
 	background-color: transparent;
@@ -71,4 +68,43 @@ input {
 	border-radius: 20% 45% 20% 5%/5% 20% 25% 60%;
 	background-color: transparent;
 	border: 2px solid hsl(198, 1%, 29%);
+}
+
+li {
+	display: inline;
+	text-align: left;
+	position: relative;
+	padding: 0.5rem;
+}
+.list-item {
+	padding: 0;
+	margin: 0;
+	display: inline-table;
+	border: none;
+	font-size: large;
+	font-family: "Architects Daughter", cursive;
+	text-decoration: none;
+	padding-bottom: 3px;
+	border-radius: 20% 5% 20% 65%/35% 20% 25% 20%;
+	background-color: transparent;
+}
+
+.inputFields {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.list-item-activeTask {
+	display: flex;
+
+	width: min-content;
+	font-weight: 600;
+	cursor: pointer;
+	text-decoration: inherit;
+	background-color: transparent;
+}
+
+.Alists {
+	display: flex;
 }
