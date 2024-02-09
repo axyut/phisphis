@@ -42,13 +42,14 @@ app.use("", rootRouter);
 // Error Middleware
 app.use(errorHandler);
 app.use(notFound);
-
 // Server
 const start = () => {
   const PORT = process.env.PORT || 3000;
-  const DB_URL = String(process.env.CONNECT_DB);
+  const username = process.env.mongo_USER as string
+  const pass = process.env.mongo_PASS as string
+  const db_name = process.env.mongo_DB_NAME as string
   try {
-    connectDB(DB_URL).then(() => {
+    connectDB(username, pass, db_name).then(() => {
       app.listen(PORT, () => {
         console.log(`Server is running at http://localhost:${PORT}`);
       });
