@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "ts-node-dev app.ts",
-    "start": "concurrently -n \" Client, Server \" -c \"bgGreen.bold,bgBlack.bold\" \"cd client && npm start \" \" npm run dev \"",
+    "start": "concurrently -n \" Client , Server \" -c \"bgGreen.bold,bgBlack.bold\" \"cd client && npm start \" \" npm run dev \"",
     "test": "jest"
   },
   "author": "ak",

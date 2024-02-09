@@ -3,6 +3,7 @@ import { StatusCodes as Code } from "http-status-codes";
 import bcrypt from "bcryptjs";
 import { User } from "../models/User";
 import { BadRequestError, CustomAPIError, NotFoundError } from "../errors";
+import jwt from "jsonwebtoken";
 
 export const register = async (req: Request, res: Response) => {
   const { firstName, lastName, email, phone, password } = req.body;
@@ -45,7 +46,7 @@ export const login = async (req: Request, res: Response) => {
         userExist.password
       );
       if (verifiedPassword) {
-        const token = await userExist.schema.methods.createToken();
+        const token = await createToken(email);
         console.log(`${userExist.firstName} Logged In.`);
 
         res.status(Code.ACCEPTED).json({
@@ -65,4 +66,33 @@ export const login = async (req: Request, res: Response) => {
 export const deleteAll = async (req: Request, res: Response) => {
   await User.deleteMany();
   res.status(Code.GONE).json({ msg: "All Users Deleted Successfully!" });
+};
+
+// JWT token
+const createToken = async function(email: String) {
+  try {
+    const userA = await User.findOne({ email })
+    if (!userA) {
+      return null
+    }
+
+    let sendToken = jwt.sign(
+      {
+        uuid: userA.uuid,
+        firstName: userA.firstName,
+        lastName: userA.lastName,
+        email: userA.email,
+        role: userA.role,
+      },
+      String(process.env.JWT_SECRET),
+      { expiresIn: "1h" }
+    );
+
+    const tokens = [...userA.tokens, ...[{ token: sendToken }]];
+    const updated = await User.updateOne({ email }, { tokens });
+
+    return sendToken;
+  } catch (error) {
+    console.log(error);
+  }
 };

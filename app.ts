@@ -1,7 +1,5 @@
-// require("dotenv").config();
 import "dotenv/config";
 import "express-async-errors";
-
 import express from "express";
 const app = express();
 
@@ -42,6 +40,7 @@ app.use("", rootRouter);
 // Error Middleware
 app.use(errorHandler);
 app.use(notFound);
+
 // Server
 const start = () => {
   const PORT = process.env.PORT || 3000;

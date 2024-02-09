@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
 import { v4 as uuidv4 } from "uuid";
 import "dotenv/config";
 
@@ -64,7 +63,7 @@ const userSchema = new mongoose.Schema(
 );
 
 // MIDDLEWARE
-userSchema.pre("save", async function (next) {
+userSchema.pre("save", async function(next) {
   if (this.isModified("password")) {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
@@ -73,27 +72,6 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-// JWT token
-userSchema.methods.createToken = async function () {
-  try {
-    let sendToken = jwt.sign(
-      {
-        uuid: this.uuid,
-        firstName: this.firstName,
-        lastName: this.lastName,
-        email: this.email,
-        role: this.role,
-      },
-      String(process.env.JWT_SECRET),
-      { expiresIn: "1h" }
-    );
-    this.tokens = this.tokens.concat({ token: sendToken });
-    await this.save();
-    return sendToken;
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 const User = mongoose.model("USER", userSchema);
 
