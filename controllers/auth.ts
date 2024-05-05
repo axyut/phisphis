@@ -35,16 +35,19 @@ export const register = async (req: Request, res: Response) => {
 
 export const login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
+
     try {
         if (!email || !password) {
             throw new BadRequestError("Fill all the required fields!");
         }
         const userExist = await User.findOne({ email: email });
+
         if (userExist) {
             const verifiedPassword = await bcrypt.compare(
                 password,
                 userExist.password
             );
+
             if (verifiedPassword) {
                 const token = await createToken(email);
                 console.log(`${userExist.firstName} Logged In.`);
@@ -53,6 +56,8 @@ export const login = async (req: Request, res: Response) => {
                     msg: "Login Successful!",
                     token,
                 });
+            } else {
+                throw new NotFoundError("Invalid Credentials");
             }
         } else {
             throw new NotFoundError("Invalid Credentials");

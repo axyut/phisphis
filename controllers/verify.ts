@@ -5,16 +5,7 @@ const { NotFoundError, UnauthenticatedError } = require("../errors");
 const { StatusCodes: Code } = require("http-status-codes");
 import User from "../models/User";
 import jwt from "jsonwebtoken";
-
-interface UserInfo {
-    uuid: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    role: string;
-    iat: number;
-    exp: number;
-}
+import { UserInfo } from "../utils/types";
 
 const verifyJWT = async (req: Request, res: Response) => {
     const authHeader = req.headers.authorization;

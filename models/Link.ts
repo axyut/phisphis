@@ -1,7 +1,5 @@
-//link_id, social_id, user_id, address, expiry
 import mongoose from "mongoose";
 import { v4 as uuidv4 } from "uuid";
-import "dotenv/config";
 
 const linkSchema = new mongoose.Schema(
     {

@@ -1,4 +1,3 @@
-// social_id, name, user_id, phis_mail, phis_pass
 import mongoose from "mongoose";
 import { v4 as uuidv4 } from "uuid";
 
@@ -16,6 +15,13 @@ const socialSchema = new mongoose.Schema(
         name: {
             type: String,
             required: [true, "Name is required"],
+            tirm: true,
+            minlength: 2,
+            maxlength: 20,
+        },
+        type: {
+            type: String,
+            required: [true, "Type is required"],
             tirm: true,
             minlength: 2,
             maxlength: 20,
