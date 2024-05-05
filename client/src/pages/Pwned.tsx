@@ -1,6 +1,8 @@
 import NavBar from "../components/NavBar";
+import VerifyUser from "../utils/VerifyUser";
 
-const Phishes = () => {
+const Pwned = () => {
+    VerifyUser();
     return (
         <>
             <NavBar></NavBar>
@@ -20,4 +22,4 @@ const Phishes = () => {
     );
 };
 
-export default Phishes;
+export default Pwned;

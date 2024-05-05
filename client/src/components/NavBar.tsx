@@ -24,14 +24,14 @@ const NavBar = () => {
                                 navigate("/home");
                             }}
                         >
-                            PhisPhis
+                            PhisPhisLogo
                         </span>
                     </div>
                 </div>
 
                 <div className="link-items-mid">
                     <div>
-                        <a onClick={() => navigate("/phishes")}>Phishes</a>
+                        <a onClick={() => navigate("/pwned")}>Pwned</a>
                     </div>
                     <div>
                         <a onClick={() => navigate("/settings")}>Settings</a>

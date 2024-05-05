@@ -4,7 +4,6 @@ Sign in. Login. Send Links. Phis friends. Get List of their Credentials in your 
 Use only for fun!
 </p>
 
-
 1. Dashboard is the default page that shows latest phising victims
     - Facebook | user1 | id, password | share
     - Intagram | user1 | id, password | share
@@ -13,6 +12,8 @@ Use only for fun!
     - facebook login page
     - instagram login page
     - google login page
+
+![Phising App](./assets/home.png)
 
 <!--
 ### apis requirements

@@ -9,8 +9,11 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import ProtectedRoute from "./utils/protectedRoute";
 import ErrorPage from "./pages/ErrorPage";
-import Phishes from "./pages/Phishes";
+import Pwned from "./pages/Pwned";
 import Settings from "./pages/Settings";
+
+import VerifyUser from "./utils/VerifyUser";
+import { verify } from "crypto";
 
 const App = () => {
     return (
@@ -49,10 +52,10 @@ const App = () => {
                         }
                     />
                     <Route
-                        path="/phishes"
+                        path="/pwned"
                         element={
                             <ProtectedRoute>
-                                <Phishes />
+                                <Pwned />
                             </ProtectedRoute>
                         }
                     />

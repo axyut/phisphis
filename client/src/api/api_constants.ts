@@ -12,5 +12,6 @@ export const ApiConstants = {
     AUTH: {
         LOGIN: "/auth/login",
         REGISTER: "/auth/register",
+        VERIFY: "/auth/verify",
     },
 };

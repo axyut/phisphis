@@ -1,6 +1,8 @@
 import NavBar from "../components/NavBar";
+import VerifyUser from "../utils/VerifyUser";
 
 export default function Home() {
+    VerifyUser();
     return (
         <>
             <NavBar></NavBar>

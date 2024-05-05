@@ -1,12 +1,12 @@
 //import React from "react";
 import { Navigate } from "react-router-dom";
+import { getLoginInfo } from "./LoginInfo";
 
 const ProtectedRoute = (props: any) => {
-    const token = localStorage.getItem("token");
-    if (token == undefined) {
+    if (getLoginInfo() == null) {
         return <Navigate to="/login"></Navigate>;
     }
-    // else if request to verify token fails
+
     return props.children;
 };
 

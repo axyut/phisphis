@@ -31,9 +31,9 @@
     font-size: larger;
 }
 .link-items a {
-    margin-left: 3px;
+    margin-left: 12px;
     padding: 1px;
-    margin-right: 3px;
+    margin-right: 6px;
 }
 .link-items a:hover {
     border: 2px solid #838181;

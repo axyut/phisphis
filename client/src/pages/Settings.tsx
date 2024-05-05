@@ -1,9 +1,9 @@
 import NavBar from "../components/NavBar";
-import BasicRequest from "../utils/BasicRequest";
+import VerifyUser from "../utils/VerifyUser";
+import { getLoginInfo } from "../utils/LoginInfo";
 
 const Settings = () => {
-    // BasicRequest();
-
+    VerifyUser();
     return (
         <>
             <NavBar></NavBar>
@@ -11,29 +11,10 @@ const Settings = () => {
                 <div className="container">
                     <h1>User's Profile</h1>
                     <div>
-                        <form>
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Full Name"
-                            />
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Email"
-                            />
-                            <input
-                                type="number"
-                                name="phone"
-                                placeholder="Number"
-                            />
-                            <input
-                                type="submit"
-                                name="contact"
-                                className="form-submit"
-                                value="Contact"
-                            />
-                        </form>
+                        <h3>First Name: {getLoginInfo()?.firstName}</h3>
+                        <h3>Last Name: {getLoginInfo()?.lastName}</h3>
+                        <h3>Email: {getLoginInfo()?.email}</h3>
+                        <h3>Role: {getLoginInfo()?.role}</h3>
                     </div>
                 </div>
             </div>
