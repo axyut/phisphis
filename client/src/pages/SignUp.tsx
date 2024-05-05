@@ -32,7 +32,7 @@ const SignUp = () => {
       return;
     }
     try {
-      const response = await custom_axios.post(ApiConstants.USER.SIGN_UP, {
+      const response = await custom_axios.post(ApiConstants.AUTH.REGISTER, {
         firstName,
         lastName,
         email,
@@ -117,11 +117,7 @@ const SignUp = () => {
               />
             </div>
             <div>
-              <button
-                className="active-btn"
-                onClick={register}
-                type="button"
-              >
+              <button className="active-btn" onClick={register} type="button">
                 <span>Register Account</span>
               </button>
             </div>
