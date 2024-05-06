@@ -14,4 +14,11 @@ export const ApiConstants = {
         REGISTER: "/auth/register",
         VERIFY: "/auth/verify",
     },
+    SOCIAL: {
+        ALL: "/social",
+        NEW: "/social/newPwn",
+    },
+    LINK: {
+        CREATE: "/link/create",
+    },
 };

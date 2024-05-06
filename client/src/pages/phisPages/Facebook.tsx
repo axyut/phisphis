@@ -1,6 +1,7 @@
 import jwtDecode from "jwt-decode";
 import { DecodedType } from "../../utils/types";
 import FbPreview from "./facebookAssets/Preview";
+import FbOriginal from "./facebookAssets/Original";
 
 export default function Facebook() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -10,15 +11,14 @@ export default function Facebook() {
         return <FbPreview></FbPreview>;
     }
     const decoded = jwtDecode(addr_val!) as DecodedType;
-    if (decoded.socialName !== "Facebook") {
+    const { socialName, socialType, user_id } = decoded;
+    if (socialName !== "Facebook") {
         window.location.href = "https://www.facebook.com";
     }
-    console.log(decoded);
+    // console.log(decoded);
     return (
         <>
-            <div className="original">
-                <h1>Login to Facebook</h1>
-            </div>
+            <FbOriginal decoded={decoded}></FbOriginal>
         </>
     );
 }

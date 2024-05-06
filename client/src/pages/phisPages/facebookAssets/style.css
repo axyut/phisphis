@@ -1,132 +1,139 @@
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* all: unset; */
 }
 
-html{
-	scroll-behavior: smooth;
+/* added */
+
+.logHead span {
+    all: unset;
 }
 
-body{
-     font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+input {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
-#myForm{
-	background: #f0f2f5;
+/* added */
+
+#myForm {
+    scroll-behavior: smooth;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    background: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px 0px 80px 0px;
+    height: 100vh;
 }
 
-#myForm .wrapper{
-   width: 400px;
-   height: auto;
+#myForm .wrapper {
+    width: 400px;
+    height: auto;
 }
 
-#myForm .fbImage{
-   max-width: 100%;
-   height: auto;
-   margin: 0px 80px 0px 80px;
+#myForm .fbImage {
+    max-width: 100%;
+    height: auto;
+    margin: 0px 80px 0px 80px;
 }
 
-#myForm .login{
-    height: 385px;
-	width: 100%;	
-	padding: 15px;
-	background: #fff;
-	display: flex;
-	flex-direction: column;
+#myForm .login {
+    height: 400px;
+    width: 100%;
+    padding: 15px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-	border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.login .logHead{
+.login .logHead {
     height: 60px;
-	font-size: 18px;
-	font-weight: 400;
-	color: #222;
+    font-size: 18px;
+    font-weight: 400;
+    color: #222;
     margin-bottom: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login .form_contents{
-    width: 100%; 
+.login .form_contents {
+    width: 100%;
 }
 
-form .pswd{
-  position: relative;
+form .pswd {
+    position: relative;
 }
 
-form .pswd .showHide{
-   position: absolute;
-   right: 10px;
-   top: 16px;
-   height: 30px;
-   width: 30px;
-   background: #fff;
-   border-radius: 100%;
-   cursor: pointer;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+form .pswd .showHide {
+    position: absolute;
+    right: 10px;
+    top: 16px;
+    height: 30px;
+    width: 30px;
+    background: #fff;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-form .pswd .showHide:hover{
-   background: #eee;
+form .pswd .showHide:hover {
+    background: #eee;
 }
 
-form .pswd img{
+form .pswd img {
     height: 18px;
     opacity: 0.7;
     width: auto;
- }
+}
 
-form .pswd #showPwd{
+form .pswd #showPwd {
     display: none;
 }
 
-form .pswd #hidePwd{
+form .pswd #hidePwd {
     display: none;
 }
 
 /*for removing default eye icon of input type=password*/
-input[type=password]::-ms-reveal,
-input[type=password]::-ms-clear
-{
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
     display: none;
 }
 
-#myForm .login input{
+#myForm .login input {
     padding: 14px;
     margin: 6px 0px;
     width: 100%;
     border-radius: 6px;
 }
 
-#myForm .login #username, #password{
+#myForm .login #username,
+#password {
     border: 1px solid #ddd;
     color: #888;
     font-size: 17px;
 }
 
-#myForm .login #username:focus{
-   outline:none;
-   color: #000;
+#myForm .login #username:focus {
+    outline: none;
+    color: #000;
 }
 
-#myForm .login #password:focus{
-    outline:none;
+#myForm .login #password:focus {
+    outline: none;
     color: #000;
- }
+}
 
-
-#myForm .login #button{
+#myForm .login #button {
     background-color: #1877f2;
     color: #fff;
     border: 0px solid black;
@@ -135,29 +142,29 @@ input[type=password]::-ms-clear
     cursor: pointer;
 }
 
-#myForm .login a{
+#myForm .login a {
     color: #3877f2;
     text-decoration: none;
     margin: 10px;
-    font-size:14px;
+    font-size: 14px;
     font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#myForm .login a:hover{
+#myForm .login a:hover {
     text-decoration: underline;
 }
 
-#myForm .login .btn-new-acc{
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+#myForm .login .btn-new-acc {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#myForm .login #button2{
+#myForm .login #button2 {
     background-color: #36b420;
     color: #fff;
     padding: 13px;
@@ -170,44 +177,42 @@ input[type=password]::-ms-clear
     cursor: pointer;
 }
 
-#myForm .login .lineOrline{
-	width: 100%;
-	color: #aaa;
-	display: flex;
-	flex-direction: row;
+#myForm .login .lineOrline {
+    width: 100%;
+    color: #aaa;
+    display: flex;
+    flex-direction: row;
 }
 
-#myForm .login .lineOrline .leftLine{ 
-	height: 12px;
-	width: 100%;
-	border-bottom: 1px solid #ccc;
+#myForm .login .lineOrline .leftLine {
+    height: 12px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
 }
 
-#myForm .login .lineOrline .rightLine{ 
-	height: 12px;
-	width: 100%;
-	border-bottom: 1px solid #ccc;
+#myForm .login .lineOrline .rightLine {
+    height: 12px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
 }
 
-#myForm .login .lineOrline .or{
-	height: 25px;
-	width: 20px;
-	margin: 0px 18px;
-	padding-top: 3px;
-	font-size: 12px;
-	color: #999;
+#myForm .login .lineOrline .or {
+    height: 25px;
+    width: 20px;
+    margin: 0px 18px;
+    padding-top: 3px;
+    font-size: 12px;
+    color: #999;
 }
 
-@media screen and  (max-width: 420px){  
-#myForm .wrapper{
-   width: 360px;
-}   
-};
+@media screen and (max-width: 420px) {
+    #myForm .wrapper {
+        width: 360px;
+    }
+}
 
-@media screen and  (max-width: 380px){  
-#myForm .wrapper{
-   width: 280px;
-}   
-};
-
-
+@media screen and (max-width: 380px) {
+    #myForm .wrapper {
+        width: 280px;
+    }
+}
