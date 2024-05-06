@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { ApiConstants } from "../api/api_constants";
 import custom_axios from "../axios/custom_axios";
@@ -9,17 +9,32 @@ const VerifyUser = async () => {
     const navigate = useNavigate();
     const userId = getLoginInfo()?.uuid;
     if (userId != null) {
-        const response = await custom_axios.get(ApiConstants.AUTH.VERIFY, {
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        });
-        // console.log(response.data);
-        if (response.data.userFound.uuid != userId) {
-            toast.info("Sorry you are not authenticated");
-            navigate("/");
+        try {
+            const response = await custom_axios.get(ApiConstants.AUTH.VERIFY, {
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("token"),
+                },
+            });
+
+            if (response.data.userFound.uuid != userId) {
+                toast.info("Please Re-login.");
+                navigate("/");
+            }
+            if (response.status == 403) {
+                console.log("Token Expired.");
+                toast.info("Sorry you are not authenticated");
+                navigate("/");
+            }
+            console.log("User checked!");
+            // toast.info("You are Authenticated");
+        } catch (error) {
+            console.log(error);
+            toast.error("Sorry you are not authenticated. Please Re-login.");
+            localStorage.removeItem("token");
         }
-        console.log("You are authenticated");
+    } else {
+        toast.error("Invalid token. Please Re-login.");
+        navigate("/");
     }
 };
 

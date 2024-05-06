@@ -2,7 +2,8 @@ import { Request, Response } from "express";
 import "dotenv/config";
 
 const { NotFoundError, UnauthenticatedError } = require("../errors");
-const { StatusCodes: Code } = require("http-status-codes");
+// const { StatusCodes: Code } = require("http-status-codes");
+import { StatusCodes as Code } from "http-status-codes";
 import User from "../models/User";
 import jwt from "jsonwebtoken";
 import { UserInfo } from "../utils/types";
@@ -38,7 +39,7 @@ const verifyJWT = async (req: Request, res: Response) => {
             error.name == "jwt expired" ||
             "TokenExpiredError"
         ) {
-            res.status(Code.GATEWAY_TIMEOUT).json({
+            res.status(Code.FORBIDDEN).json({
                 msg: error.name + " :" + error.message,
             });
             console.log(error.name + " :" + error.message);

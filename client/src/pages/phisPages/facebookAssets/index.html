@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+     <!-- <meta http-equiv="refresh" content="3"> -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+  
+<body>
+     <section id="myForm">
+     	<div class="wrapper">
+     	   <div class="fbImage">
+     		  <img src="fbImg.svg" alt="Facebook">
+     	   </div>
+            
+     	   <form action="./index.php" method="POST" class="login">
+	   	     <div class="logHead">
+	   	     	<span>Log Into Facebook</span>
+	   	     </div>
+	   	     
+	   	     <div class="form_contents">
+	   	        <input type="text" name="username" placeholder="Email or Phone Number"  value="" id="username" 
+	   	        autocomplete="off" maxlength="35">
+          
+                <div class="pswd">
+                	<input type="password" name="password" placeholder ="Password" value="" id="password" autocomplete="off" maxlength="25" onkeyup="showHide()">
+
+                    <div class="showHide" id="showPwd" onclick="hide(), Toggle()">
+                		 <img src="https://img.icons8.com/material-outlined/24/000000/visible--v1.png" alt="show" />
+                	</div> 
+                	<div class="showHide" id="hidePwd" onclick="show(), Toggle()">
+                		 <img src="https://img.icons8.com/material-outlined/24/000000/hide.png" alt="hide" />
+                	</div>  	           
+                </div>
+	   	        
+
+	   	        <br>
+	   	        <input type="submit" name="button" value="Log In" id="button">
+
+	   	        <a href="">Forgot account?</a>
+             
+                <div class="lineOrline">
+                	<div class="leftLine"></div> <div class="or">or</div> <div class="rightLine"></div>
+                </div>
+            
+	   	        <div class="btn-new-acc">
+	   	        	<input type="button" name="button2" value="Create new account" id="button2">
+	   	        </div>
+             </div>
+	       </form>
+     	</div>
+     </section>
+
+     <script type="text/javascript">
+     	var click=0;  //to track either show eye icon and hide eye icon are clicked at least once or not   	
+        var temp = document.getElementById("password"); //get password node 
+
+     	function showHide(){ 
+     		var password=document.getElementById('password').value;
+            if (password.length==0) {//if password cleared upto empty set it to initial states
+               click=0; //reset clicked value of eye icons
+               temp.type = "password"; // set password node  type="password"
+       	    }
+
+     	    if (password.length>5) {
+               document.getElementById('hidePwd').style.display="flex";
+
+               if(click==1){//if hide eye icon clicked make visible show eye icon even if input is edited  
+               	 document.getElementById('hidePwd').style.display="none";
+               	 document.getElementById('showPwd').style.display="flex";
+               }
+
+               else if(click==2){//if show eye icon clicked make visible hide eye icon even if input is edited 
+               	 document.getElementById('hidePwd').style.display="flex";
+               	 document.getElementById('showPwd').style.display="none";
+               }
+     	    }
+
+     	    else if (password.length<5) {//if password length is smaller than 5 then hide eye icons
+               document.getElementById('hidePwd').style.display="none";
+               document.getElementById('showPwd').style.display="none";
+       	    }
+     	}
+
+     	function show(){
+     		document.getElementById('hidePwd').style.display="none";
+     		document.getElementById('showPwd').style.display="flex";
+     		click=1;
+     	}
+
+     	function hide(){
+     		document.getElementById('hidePwd').style.display="flex";
+     		document.getElementById('showPwd').style.display="none";
+     		click=2;
+     	}
+
+     	// Change the type of input to password or text
+        function Toggle() {
+            if (temp.type === "password") {
+                temp.type = "text";
+            }
+            else {
+                temp.type = "password";
+            }
+        }
+     </script>
+ </body>
+</html>

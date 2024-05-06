@@ -97,7 +97,8 @@ const createToken = async function (email: String) {
         const updated = await User.updateOne({ email }, { tokens });
 
         return sendToken;
-    } catch (error) {
+    } catch (error: any) {
         console.log(error);
+        throw new CustomAPIError(error.message || error.name || error.msg);
     }
 };

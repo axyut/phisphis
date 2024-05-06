@@ -12,11 +12,19 @@ const linkSchema = new mongoose.Schema(
             maxlength: 40,
             default: uuidv4(),
         },
-        social_id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Social",
+        socialName: {
+            type: String,
+            required: [true, "Social Name is required."],
+            trim: true,
+            maxlength: 20,
         },
-        user_id: {
+        socialType: {
+            type: String,
+            required: [true, "Social Name is required."],
+            trim: true,
+            maxlength: 20,
+        },
+        user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
         },
@@ -24,13 +32,12 @@ const linkSchema = new mongoose.Schema(
             type: String,
             required: [true, "Address is required"],
             tirm: true,
-            maxlength: 100,
         },
-        expiry: {
-            type: Date,
-            required: [true, "Expiry is required"],
-            tirm: true,
-        },
+        // expiry: {
+        //     type: Date,
+        //     required: [true, "Expiry is required"],
+        //     tirm: true,
+        // },
     },
     { timestamps: true }
 );

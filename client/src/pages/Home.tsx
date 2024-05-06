@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import VerifyUser from "../utils/VerifyUser";
 
@@ -15,7 +16,9 @@ export default function Home() {
                             <li>
                                 <h2>Simple Login</h2>
                                 <button className="active-btn">
-                                    <span>Preview</span>
+                                    <Link to={"/user/wwwfacebookcom"}>
+                                        <span>Preview</span>
+                                    </Link>
                                 </button>
                                 <button className="active-btn">
                                     <span>Generate Link</span>
@@ -24,7 +27,9 @@ export default function Home() {
                             <li>
                                 <h2>Iphone Offer Login</h2>
                                 <button className="active-btn">
-                                    <span>Preview</span>
+                                    <Link to={"/user/wwwfacebookcom"}>
+                                        <span>Preview</span>
+                                    </Link>
                                 </button>
                                 <button className="active-btn">
                                     <span>Generate Link</span>
@@ -33,7 +38,9 @@ export default function Home() {
                             <li>
                                 <h2>Horoscope Login</h2>
                                 <button className="active-btn">
-                                    <span>Preview</span>
+                                    <Link to={"/user/wwwfacebookcom"}>
+                                        <span>Preview</span>
+                                    </Link>
                                 </button>
                                 <button className="active-btn">
                                     <span>Generate Link</span>
@@ -47,7 +54,9 @@ export default function Home() {
                             <li>
                                 <h2>Simple Login</h2>
                                 <button className="active-btn">
-                                    <span>Preview</span>
+                                    <Link to={"/user/wwwinstagramcom"}>
+                                        <span>Preview</span>
+                                    </Link>
                                 </button>
                                 <button className="active-btn">
                                     <span>Generate Link</span>
@@ -56,7 +65,9 @@ export default function Home() {
                             <li>
                                 <h2>Free followers Login</h2>
                                 <button className="active-btn">
-                                    <span>Preview</span>
+                                    <Link to={"/user/wwwinstagramcom"}>
+                                        <span>Preview</span>
+                                    </Link>
                                 </button>
                                 <button className="active-btn">
                                     <span>Generate Link</span>
@@ -70,7 +81,9 @@ export default function Home() {
                             <li>
                                 <h2>Simple Login</h2>
                                 <button className="active-btn">
-                                    <span>Preview</span>
+                                    <Link to={"/user/wwwgooglecom"}>
+                                        <span>Preview</span>
+                                    </Link>
                                 </button>
                                 <button className="active-btn">
                                     <span>Generate Link</span>

@@ -16,6 +16,7 @@ import { connectDB } from "./db/connection";
 import helmet from "helmet";
 import cors from "cors";
 import rateLimiter from "express-rate-limit";
+import { HandleEnvVars } from "./utils/handleEnvVars";
 const xss = require("xss-clean");
 
 // Security
@@ -43,12 +44,9 @@ app.use(notFound);
 
 // Server
 const start = () => {
-    const PORT = process.env.PORT || 3000;
-    const username = process.env.mongo_USER as string;
-    const pass = process.env.mongo_PASS as string;
-    const db_name = process.env.mongo_DB_NAME as string;
+    const { PORT, DB_CONN } = HandleEnvVars();
     try {
-        connectDB(username, pass, db_name).then(() => {
+        connectDB(DB_CONN).then(() => {
             app.listen(PORT, () => {
                 console.log(`Server is running at http://localhost:${PORT}`);
             });
