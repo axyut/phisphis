@@ -14,6 +14,9 @@ Use only for fun!
     - google login page
 
 ![Phising App](./assets/home.png)
+![Phising App](./assets/genlink.png)
+![phising App](./assets/pwned.png)
+![Phising App](./assets/simpleLoginFbPreview.png)
 
 <!--
 ### apis requirements
