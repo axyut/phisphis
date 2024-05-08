@@ -17,6 +17,7 @@ export const ApiConstants = {
     SOCIAL: {
         ALL: "/social",
         NEW: "/social/newPwn",
+        PWNED: "/social/pwned",
     },
     LINK: {
         CREATE: "/link/create",

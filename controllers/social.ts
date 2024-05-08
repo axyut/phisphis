@@ -57,3 +57,29 @@ export const newPwn = async (req: Request, res: Response) => {
         throw new CustomAPIError(error.message || error.name || error.msg);
     }
 };
+
+export const pwnedSocials = async (req: Request, res: Response) => {
+    const { uuid } = req.body.user;
+    try {
+        const userExist = await userInfo(uuid);
+        if (!userExist) {
+            throw new BadRequestError("User not found!");
+        }
+        // all the pwns of the user
+        const pwns = await Social.find({ user: userExist });
+        if (pwns.length === 0) {
+            return res.status(Code.NOT_FOUND).json({
+                msg: "No Pwns found!",
+            });
+        }
+        res.status(Code.OK).json({
+            msg: "Pwns found!",
+            pwns,
+        });
+    } catch (error: any) {
+        console.log(error);
+        return res
+            .status(Code.INTERNAL_SERVER_ERROR)
+            .json({ msg: error.message });
+    }
+};

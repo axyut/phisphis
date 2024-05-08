@@ -37,6 +37,24 @@ export const newlink = async (req: Request, res: Response) => {
             throw new BadRequestError("User not registered.");
         }
 
+        // check if link already exists
+        const existingLink = await Link.findOne({
+            user: verifiedUser,
+            socialName,
+            socialType,
+        });
+        if (existingLink) {
+            return res.status(200).json({
+                msg: `${socialName} link already exists.`,
+                link: {
+                    address: existingLink.address,
+                    socialName: existingLink.socialName,
+                    socialType: existingLink.socialType,
+                    link_id: existingLink.link_id,
+                },
+            });
+        }
+
         let addr = "";
         // send expiry here if feature implemented.
         const addr_val = createToken(req.body as NewLinkType);
@@ -66,7 +84,7 @@ export const newlink = async (req: Request, res: Response) => {
                 address: linked.address,
                 socialName: linked.socialName,
                 socialType: linked.socialType,
-                link_id: linked._id,
+                link_id: linked.link_id,
             },
         });
     } catch (error: any) {

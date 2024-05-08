@@ -1,0 +1,33 @@
+.divTable {
+    display: table;
+    width: 100%;
+}
+
+.pwnTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #536475;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.pwnTable th {
+    background-color: #536475;
+    font-weight: bold;
+}
+
+.pwnTable th,
+.pwnTable td {
+    border: 1px solid #536475;
+    color: #ffffff;
+    text-align: left;
+    padding: 6px;
+    width: 100px;
+}
+
+.pwnTable tr:nth-child(odd) {
+    background-color: #3f3f3f;
+}
